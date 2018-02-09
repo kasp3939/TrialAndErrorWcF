@@ -27,8 +27,6 @@ namespace TrialAndErrorWcF
         }
         public Flight FindFlightByID(int flightNumber)
         {
-            lock (myLock)
-            {
                 PopulateList();
                 Flight _flight = new Flight();
                 _flight = null;
@@ -41,7 +39,6 @@ namespace TrialAndErrorWcF
 
                 }
                 return _flight;
-            }
         }
 
         public string ChangeFlight(int _flightNumber, string fromLocation, string toLocation)
@@ -67,11 +64,8 @@ namespace TrialAndErrorWcF
 
         public List<Flight> GetData()
         {
-            lock (myLock)
-            {
-                PopulateList();
-                return listOfFlight.ToList();
-            }
+            PopulateList();
+            return listOfFlight.ToList();
         }
     }
 }
