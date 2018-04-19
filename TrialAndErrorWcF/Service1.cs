@@ -41,6 +41,11 @@ namespace TrialAndErrorWcF
                 return _flight;
         }
 
+        public Flight GetById(int id)
+        {
+            return listOfFlight.Find(flight => flight.FlightId == id);
+        }   
+
         public string ChangeFlight(int _flightNumber, string fromLocation, string toLocation)
         {
             string message = "";
@@ -60,7 +65,7 @@ namespace TrialAndErrorWcF
             }
             return message;
 
-        }
+        } 
 
         public List<Flight> GetData()
         {
